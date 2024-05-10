@@ -1,10 +1,85 @@
-.formContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+body {
+    background-color: #a98467; 
+    color: #ffff;
+    font-family: Arial, sans-serif; 
+    align-items: center;
 }
 
-.inputContainer{
+.formContainer {
+    display: flex;
+    background-color:#ddbea9;
+    padding: 5rem;
+    flex-direction: column;
+    border-radius: 2%;
+    gap: 15px;
+}
+.Titulo{
+    margin-top: -1rem;
+}
+.imagenBienvenida{
+    width: 12rem;
+    height: 10rem;
+}
+
+.inputContainer {
     display: flex;
     justify-content: space-between;
 }
+
+.dataContainer {
+    margin-top: 20px;
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border-radius: 2%; 
+    overflow: hidden; 
+    margin-bottom: 5rem;
+}
+
+.dataTable th, 
+.dataTable td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.dataTable th {
+    background-color: #a78a7f;
+    color: #fff; 
+}
+
+.dataTable tbody tr:nth-child(even) {
+    background-color: #ddbea9;
+}
+
+.dataTable tbody tr:hover {
+    background-color: #ffe8d6;
+    color: #a98467;
+}
+
+.customButton {
+    background-color: #a78a7f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .customButton:hover {
+    background-color: #ffe8d6;
+    color: #a98467;
+  }
+
+  .footer {
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    margin-top: 5rem;
+    padding: 10px;
+  }
