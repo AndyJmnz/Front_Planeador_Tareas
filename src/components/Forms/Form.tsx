@@ -26,8 +26,8 @@ function Form() {
     }
 
     const handleOnClickSend = () => {
-        //logIn({email,password});
         fetchTask();
+        logIn({email,password});
         setshowData(!showData);
     }
     const logIn = async ({email, password}: {email: string, password: string}) =>{
@@ -40,7 +40,7 @@ function Form() {
                 body: JSON.stringify({email,password})
             });
 
-            if(response.status === 200){
+            if(response.ok){
                 const data = await response.json();
                 setUser(data);
                 window.localStorage.setItem("user", JSON.stringify(data));
@@ -54,23 +54,24 @@ function Form() {
     }
 
     const fetchTask = async () => {
-        try{
-            const response = await fetch(`${API_URL}/api/v1/tasks`, {
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
+            try{
+                const response = await fetch(`${API_URL}/api/v1/tasks`, {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                });
+    
+                if(response.status === 200) {
+                    const data = await response.json();
+                    setDataTask(data);
+                    //console.log(data);
                 }
-            });
-
-            if(response.status === 200) {
-                const data = await response.json();
-                setDataTask(data);
-                //console.log(data);
+    
+            }catch(error){
+                console.log(error);
             }
-
-        }catch(error){
-            console.log(error);
         }
-    }
+   
         return(
         <>
            {

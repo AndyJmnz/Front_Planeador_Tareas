@@ -1,0 +1,18 @@
+.dataContainer {
+    padding: 20px;
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dataTable th, .dataTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.dataTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
