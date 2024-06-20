@@ -16,3 +16,12 @@
     background-color: #f2f2f2;
     text-align: left;
 }
+.taskSection {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.taskActions button {
+    margin-right: 5px;
+}
