@@ -59,12 +59,9 @@ const Tasks = () => {
                     }
                 });
 
-                if (response.status === 200) {
-                    // Después de eliminar la tarea, vuelve a obtener la lista completa de tareas
+                
                     fetchTask(user.token);
-                } else {
-                    console.log("Error deleting task");
-                }
+                
             } catch (error) {
                 console.log(error);
             }
