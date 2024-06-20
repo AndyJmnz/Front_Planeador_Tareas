@@ -60,8 +60,8 @@ const Tasks = () => {
                 });
 
                 if (response.status === 200) {
-                    // Actualiza el estado eliminando la tarea sin refrescar la página
-                    setDataTask(prevTasks => prevTasks.filter(task => task._id !== taskId));
+                    // Después de eliminar la tarea, vuelve a obtener la lista completa de tareas
+                    fetchTask(user.token);
                 } else {
                     console.log("Error deleting task");
                 }
@@ -99,3 +99,4 @@ const Tasks = () => {
 };
 
 export default Tasks;
+
