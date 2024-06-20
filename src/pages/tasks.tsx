@@ -59,7 +59,8 @@ const Tasks = () => {
                     }
                 });
 
-                
+               
+                    // Después de eliminar la tarea, vuelve a obtener la lista completa de tareas
                     fetchTask(user.token);
                 
             } catch (error) {
