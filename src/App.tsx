@@ -15,7 +15,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Login/>}/>
       <Route path="/tasks" element={<Tasks />} />
-      <Route path="/edit-task" element={<EditTask/>}/>
+      <Route path="/edit-task/:taskId" element={<EditTask />} />
       <Route path='/edit-status' element={<EditStatus/>}/>
       <Route path="/add-task" element={<AddTask />} />
     </Routes>
