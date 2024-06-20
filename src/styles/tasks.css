@@ -16,13 +16,31 @@
     background-color: #f2f2f2;
     text-align: left;
 }
-.taskSection {
+
+.taskGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.taskCard {
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 10px 0;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.taskInfo p {
+    margin: 5px 0;
+}
+
+.taskActions {
+    margin-top: 10px;
 }
 
 .taskActions button {
     margin-right: 5px;
 }
+
 

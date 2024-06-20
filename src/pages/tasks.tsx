@@ -59,8 +59,7 @@ const Tasks = () => {
                     }
                 });
 
-               
-                    // Después de eliminar la tarea, vuelve a obtener la lista completa de tareas
+             
                     fetchTask(user.token);
                 
             } catch (error) {
@@ -71,22 +70,23 @@ const Tasks = () => {
 
     return (
         <section className="dataContainer">
-           <h2>Tareas</h2>
-           <button onClick={handleAddTask}>Agregar Tarea</button>
+            <h2>Tareas</h2>
+            <button onClick={handleAddTask}>Agregar Tarea</button>
             {user && dataTask.length > 0 ? (
-                <div className="taskList">
+                <div className="taskGrid">
                     {dataTask.map((task, index) => (
-                        <section key={index} className="taskSection">
+                        <div key={index} className="taskCard">
                             <div className="taskInfo">
                                 <p><strong>Id:</strong> {task._id}</p>
                                 <p><strong>Nombre:</strong> {task.name}</p>
+                                <p><strong>Descripción:</strong> {task.description}</p>
                             </div>
                             <div className="taskActions">
-                                <button onClick={() => handleEditTask(task._id)}>Modificar</button>
-                                <button onClick={() => handleEditStatus(task._id)}>Completada</button>
+                                <button onClick={() => handleEditTask(task._id)}>Modificar Tarea</button>
+                                <button onClick={() => handleEditStatus(task._id)}>Modificar Estado</button>
                                 <button onClick={() => handleDeleteTask(task._id)}>Eliminar</button>
                             </div>
-                        </section>
+                        </div>
                     ))}
                 </div>
             ) : (
@@ -97,4 +97,5 @@ const Tasks = () => {
 };
 
 export default Tasks;
+
 
