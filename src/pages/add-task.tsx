@@ -6,6 +6,7 @@ const API_URL = "http://localhost:3010";
 const AddTask = () => {
     const [name, setName] = useState("");
     const [descripcion, setDescripcion] = useState("");
+    const [date, setDate] = useState(""); 
     const navigate = useNavigate();
 
     const handleAddTask = async (event: React.FormEvent) => {
@@ -22,7 +23,7 @@ const AddTask = () => {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify({ name, descripcion })
+                    body: JSON.stringify({ name, descripcion, date })
                 });
 
                 if (response.status === 201) {
@@ -34,6 +35,11 @@ const AddTask = () => {
                 console.log(error);
             }
         }
+    }
+
+    const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const dateValue = event.target.value;
+        setDate(dateValue); 
     }
 
     return (
@@ -57,6 +63,15 @@ const AddTask = () => {
                         id="descripcion"
                         value={descripcion}
                         onChange={(e) => setDescripcion(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="date">Fecha y Hora:</label>
+                    <input
+                        type="datetime-local"
+                        id="date"
+                        onChange={handleDateChange}
                         required
                     />
                 </div>
