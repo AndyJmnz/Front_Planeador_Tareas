@@ -47,4 +47,18 @@
     margin-right: 5px;
 }
 
+.headerContainer {
+    background-color: #75503a;
+    padding: 10px; 
+    margin-bottom: 20px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.headerContainer h1 {
+    color: white; 
+    margin: 0; 
+    font-size: 32px; 
+    text-align: center;
+}
 

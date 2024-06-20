@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/tasks.css";
+import taskImage from "../assets/todoList.png";
 
 const API_URL = "http://localhost:3010";
 
@@ -40,10 +41,6 @@ const Tasks = () => {
         navigate(`/edit-task/${taskId}`);
     }
 
-    const handleEditStatus = (taskId: string) => {
-        navigate(`/edit-status/${taskId}`);
-    }
-
     const handleAddTask = () => {
         navigate('/add-task');
     }
@@ -59,18 +56,41 @@ const Tasks = () => {
                     }
                 });
 
-             
-                    fetchTask(user.token);
-                
+
+                fetchTask(user.token);
+
             } catch (error) {
                 console.log(error);
             }
         }
     }
+    const handleCompleteTask = async (taskId: string) => {
+        try {
+            const response = await fetch(`${API_URL}/api/v1/tasks/${taskId}/status`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': `Bearer ${user.token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.status === 200) {
+                fetchTask(user.token);
+            } else {
+                console.log("Error updating task status");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     return (
         <section className="dataContainer">
-            <h1>Tareas</h1>
+            <div className="headerContainer">
+                <h1>Tareas</h1>
+            </div>
+            <img src={taskImage} alt="Imagen de Tareas" className="taskImage" /><br></br>
             <button onClick={handleAddTask} className="botonAgregar">Agregar Tarea</button>
             {user && dataTask.length > 0 ? (
                 <div className="taskGrid">
@@ -80,10 +100,11 @@ const Tasks = () => {
                                 <p><strong>Id:</strong> {task._id}</p>
                                 <p><strong>Nombre:</strong> {task.name}</p>
                                 <p><strong>Descripción:</strong> {task.description}</p>
+                                <p><strong>Estatus:</strong> {task.status}</p>
                             </div>
                             <div className="taskActions">
                                 <button onClick={() => handleEditTask(task._id)}>Modificar</button>
-                                <button onClick={() => handleEditStatus(task._id)}>Completada</button>
+                                <button onClick={() => handleCompleteTask(task._id)}>Completada</button>
                                 <button onClick={() => handleDeleteTask(task._id)}>Eliminar</button>
                             </div>
                         </div>

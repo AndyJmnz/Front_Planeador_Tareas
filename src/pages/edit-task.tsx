@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ChangeEvent } from "react";
+import "../styles/AddTask.css";
 
 const API_URL = "http://localhost:3010";
 
@@ -77,8 +78,8 @@ const EditTask = () => {
     };
 
     return (
-        <div className="editTaskContainer">
-            <h2>Editar Tarea {taskId}</h2>
+        <div className="addTaskContainer">
+            <h2>Editar Tarea</h2>
             <form onSubmit={handleSubmit}>
                 <div className="formGroup">
                     <label htmlFor="name">Nombre:</label>
@@ -100,10 +101,9 @@ const EditTask = () => {
                         required
                     />
                 </div>
-                <button type="submit">Guardar Cambios</button>
+                <button type="submit" className="submitButton">Guardar Cambios</button>
             </form>
         </div>
     );
-};
-
+}
 export default EditTask;
