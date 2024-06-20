@@ -4,7 +4,6 @@ import "../styles/tasks.css";
 
 const API_URL = "http://localhost:3010";
 
-
 const Tasks = () => {
     const [dataTask, setDataTask] = useState<any[]>([]);
     const [user, setUser] = useState<any>(null);
@@ -49,7 +48,6 @@ const Tasks = () => {
         navigate('/add-task');
     }
 
-
     const handleDeleteTask = async (taskId: string) => {
         const confirmed = window.confirm("¿Estás seguro de que deseas eliminar esta tarea?");
         if (confirmed) {
@@ -62,6 +60,7 @@ const Tasks = () => {
                 });
 
                 if (response.status === 200) {
+                    // Actualiza el estado eliminando la tarea sin refrescar la página
                     setDataTask(prevTasks => prevTasks.filter(task => task._id !== taskId));
                 } else {
                     console.log("Error deleting task");
@@ -71,6 +70,7 @@ const Tasks = () => {
             }
         }
     }
+
     return (
         <section className="dataContainer">
            <h2>Tareas</h2>
