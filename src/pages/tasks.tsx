@@ -82,8 +82,8 @@ const Tasks = () => {
                                 <p><strong>Nombre:</strong> {task.name}</p>
                             </div>
                             <div className="taskActions">
-                                <button onClick={() => handleEditTask(task._id)}>Modificar Tarea</button>
-                                <button onClick={() => handleEditStatus(task._id)}>Modificar Estado</button>
+                                <button onClick={() => handleEditTask(task._id)}>Modificar</button>
+                                <button onClick={() => handleEditStatus(task._id)}>Completada</button>
                                 <button onClick={() => handleDeleteTask(task._id)}>Eliminar</button>
                             </div>
                         </section>

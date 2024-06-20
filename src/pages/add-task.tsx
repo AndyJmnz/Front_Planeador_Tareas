@@ -27,7 +27,7 @@ const AddTask = () => {
                 });
 
                 if (response.status === 201) {
-                    navigate('/');
+                    navigate('/tasks');
                 } else {
                     console.log("Error adding task");
                 }
