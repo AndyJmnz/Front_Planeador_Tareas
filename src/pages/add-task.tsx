@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/AddTask.css"; // Archivo CSS para los estilos 
 
 const API_URL = "http://localhost:3010";
 
@@ -43,10 +44,10 @@ const AddTask = () => {
     }
 
     return (
-        <div>
+        <div className="addTaskContainer">
             <h2>Agregar Nueva Tarea</h2>
             <form onSubmit={handleAddTask}>
-                <div>
+                <div className="formGroup">
                     <label htmlFor="name">Nombre:</label>
                     <input
                         type="text"
@@ -56,7 +57,7 @@ const AddTask = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className="formGroup">
                     <label htmlFor="descripcion">Descripción:</label>
                     <input
                         type="text"
@@ -66,7 +67,7 @@ const AddTask = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className="formGroup">
                     <label htmlFor="date">Fecha y Hora:</label>
                     <input
                         type="datetime-local"
@@ -75,7 +76,7 @@ const AddTask = () => {
                         required
                     />
                 </div>
-                <button type="submit">Agregar Tarea</button>
+                <button type="submit" className="submitButton">Agregar Tarea</button>
             </form>
         </div>
     );

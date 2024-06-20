@@ -70,8 +70,8 @@ const Tasks = () => {
 
     return (
         <section className="dataContainer">
-            <h2>Tareas</h2>
-            <button onClick={handleAddTask}>Agregar Tarea</button>
+            <h1>Tareas</h1>
+            <button onClick={handleAddTask} className="botonAgregar">Agregar Tarea</button>
             {user && dataTask.length > 0 ? (
                 <div className="taskGrid">
                     {dataTask.map((task, index) => (
@@ -82,8 +82,8 @@ const Tasks = () => {
                                 <p><strong>Descripción:</strong> {task.description}</p>
                             </div>
                             <div className="taskActions">
-                                <button onClick={() => handleEditTask(task._id)}>Modificar Tarea</button>
-                                <button onClick={() => handleEditStatus(task._id)}>Modificar Estado</button>
+                                <button onClick={() => handleEditTask(task._id)}>Modificar</button>
+                                <button onClick={() => handleEditStatus(task._id)}>Completada</button>
                                 <button onClick={() => handleDeleteTask(task._id)}>Eliminar</button>
                             </div>
                         </div>

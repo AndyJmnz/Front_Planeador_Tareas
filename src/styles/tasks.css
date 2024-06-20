@@ -17,6 +17,10 @@
     text-align: left;
 }
 
+.botonAgregar{
+    margin-bottom: 2em;
+}
+
 .taskGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -26,7 +30,7 @@
 .taskCard {
     border: 1px solid #ccc;
     padding: 10px;
-    background-color: #f4f4f4;
+    background-color: #94745b;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
